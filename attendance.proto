@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package attendancePackage;
+
+service Attendance {
+    rpc getLogs (LogsRequest) returns (AttendanceLogs);
+    rpc updateLogs (UpdateLogsRequest) returns (UpdateLogsStatus);
+}
+
+message LogsRequest {
+    int32 employee_id = 1;
+}
+
+message AttendanceLogs {
+    repeated Log attendance_logs = 1;
+}
+
+message Log {
+    string shift_date = 1;
+    repeated Punch punch = 2;
+}
+
+message Punch {
+    string punch_time = 1;
+    enum PunchType {
+        IN = 0;
+        OUT = 1;
+    }
+    enum WorkFromType {
+        HOME = 0;
+        OFFICE = 1;
+        OUT_DUTY = 2;
+    }
+    PunchType punch_type = 2;
+    WorkFromType work_from_type = 3;   
+}
+
+message UpdateLogsRequest {
+    int32 employee_id = 1;
+    repeated UpdateLog update_logs = 2;
+}
+
+message UpdateLog {
+    string shift_date = 1;
+    repeated Punch punch = 2;
+}
+
+message UpdateLogsStatus {
+    bool okay = 1;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "grpc-attendance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "grpcui": "grpcui -plaintext -proto attendance.proto localhost:8001"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.5",
+    "@grpc/proto-loader": "^0.6.9",
+    "google-protobuf": "^3.19.4"
+  }
+}
