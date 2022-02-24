@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "grpcui": "grpcui -plaintext -proto attendance.proto localhost:8001"
+    "grpcui": "grpcui -plaintext -proto ./protos/attendance.proto localhost:8001"
   },
   "author": "",
   "license": "ISC",

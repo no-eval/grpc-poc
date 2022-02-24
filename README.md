@@ -14,7 +14,20 @@ Set Path in ~/.bashrc
 
 - `export PATH="/usr/local/go/bin/:$PATH"`
 
+Install gRPC Tools & Protobuf Compiler
+
+- `sudo apt install protobuf-compiler`
+- `npm i -g grpc-tools`
+
 ### Run
+
+**Command for statically generated gRPC Code**
+
+protoc --proto_path=protos \
+ --js_out=import_style=commonjs,binary:build/gen \
+ --grpc_out=build/gen \
+ --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` \
+ ./protos/\*.proto
 
 Start gRPC Server
 

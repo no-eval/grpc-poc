@@ -2,7 +2,7 @@ const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
 const { stringify } = require("google-protobuf");
 
-const PROTO_PATH = "./attendance.proto";
+const PROTO_PATH = "./protos/attendance.proto";
 const packageDef = protoLoader.loadSync(PROTO_PATH, {});
 const attendanceProto = grpc.loadPackageDefinition(packageDef);
 const attendancePackage = attendanceProto.attendancePackage;
