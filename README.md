@@ -8,7 +8,7 @@ Install [go](https://go.dev/doc/install)
 
 Install [grpcui](https://github.com/fullstorydev/grpcui)
 
-- `go install go install github.com/fullstorydev/grpcui/cmd/grpcui@latest`
+- `go install github.com/fullstorydev/grpcui/cmd/grpcui@latest`
 
 Set Path in ~/.bashrc
 
