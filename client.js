@@ -1,12 +1,13 @@
 const grpc = require("@grpc/grpc-js");
 const attendance = require("./build/gen/attendance_pb");
 const service = require("./build/gen/attendance_grpc_pb");
+const SERVER_URI = "0.0.0.0:8001";
 
 function main() {
   console.log("Main Invoked!");
 
   const client = new service.AttendanceClient(
-    "localhost:8001",
+    SERVER_URI,
     grpc.credentials.createInsecure()
   );
 

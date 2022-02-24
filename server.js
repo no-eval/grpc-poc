@@ -3,6 +3,8 @@ const protoLoader = require("@grpc/proto-loader");
 const { stringify } = require("google-protobuf");
 
 const PROTO_PATH = "./protos/attendance.proto";
+const SERVER_URI = "0.0.0.0:8001";
+
 const packageDef = protoLoader.loadSync(PROTO_PATH, {});
 const attendanceProto = grpc.loadPackageDefinition(packageDef);
 const attendancePackage = attendanceProto.attendancePackage;
@@ -45,7 +47,7 @@ function updateLogs(call, callback) {
 }
 
 server.bindAsync(
-  "localhost:8001",
+  SERVER_URI,
   grpc.ServerCredentials.createInsecure(),
   (error, port) => {
     console.log("Server at port:", port);
