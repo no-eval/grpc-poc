@@ -15,16 +15,12 @@ function main() {
 
   request.setEmployeeId(7);
 
-  let call = client.getLogs(request, (error, response) => {
+  client.getLogs(request, (error, response) => {
     if (!error) {
-      console.log(response);
+      console.log(JSON.stringify(response.toObject()));
     } else {
       console.error(error);
     }
-  });
-
-  call.on("data", (response) => {
-    console.log(response);
   });
 }
 

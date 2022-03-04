@@ -1,6 +1,8 @@
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
 const { stringify } = require("google-protobuf");
+const { Struct } = require("google-protobuf/google/protobuf/struct_pb");
+const { struct } = require("pb-util");
 
 const PROTO_PATH = "./protos/attendance.proto";
 const SERVER_URI = "0.0.0.0:8001";
@@ -37,7 +39,8 @@ const logs = {
 };
 
 function getLogs(call, callback) {
-  console.log(JSON.stringify(call.request));
+  call.request.data ? console.log(struct.decode(call.request.data)) : null;
+  console.log(call.request.employeeId);
   callback(null, logs);
 }
 

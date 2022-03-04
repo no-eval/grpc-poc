@@ -11,6 +11,7 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.5.5",
     "@grpc/proto-loader": "^0.6.9",
-    "google-protobuf": "^3.19.4"
+    "google-protobuf": "^3.19.4",
+    "pb-util": "^1.0.3"
   }
 }

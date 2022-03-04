@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package attendancePackage;
 
+import "google/protobuf/struct.proto";
+
 service Attendance {
     rpc getLogs (LogsRequest) returns (AttendanceLogs);
     rpc updateLogs (UpdateLogsRequest) returns (UpdateLogsStatus);
@@ -9,6 +11,7 @@ service Attendance {
 
 message LogsRequest {
     int32 employee_id = 1;
+    google.protobuf.Struct data = 2;
 }
 
 message AttendanceLogs {
