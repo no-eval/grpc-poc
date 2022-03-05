@@ -21,11 +21,16 @@ function main() {
   request.data = struct.encode({ username: "no-eval" });
   console.log(JSON.stringify(request));
 
-  let call = client.getLogs(request, (error, response) => {
+  let call = client.getLogs(request, (error, response) => {    
     if (!error) {
       console.log(JSON.stringify(response));
     } else {
-      console.error(error);
+     /* 
+      error object has metadata with 'get' & 'getMap' method
+      get(x) returns => value of a valid x passed into it
+      getMap() returns => all key:values from metadata
+     */
+      console.error(error.metadata.getMap());
     }
   });
 
